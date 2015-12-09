@@ -1,19 +1,39 @@
 #include "cplane.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 void iterate(ComplexNumber z,ComplexNumber c);
 
-int main(long double xmin, long double xmax, long double  ymin, long double  ymax, unsigned long int xpoints, unsigned long int ypoints, long double  creal, long double cimag){
+int main(int argc, char **argv){
+	printf ("Step 0");
+	if(argc< 8){
+	 return 2;
+	}
+        long double xmin = atoi(argv[0]); 
+	long double xmax= atoi(argv[1]); 
+	long double ymin= atoi(argv[2]); 
+	long double  ymax= atoi(argv[3]); 
+	unsigned long int xpoints= atoi(argv[4]); 
+	unsigned long int ypoints= atoi(argv[5]); 
+	long double  creal= atoi(argv[6]); 
+	long double cimag= atoi(argv[7]);
+	printf ("Step 1");	
 	CPLANE* cpl = CPLANE_new(xmin, xmax, ymin, ymax, xpoints, ypoints);
+	printf ("Step 2");
 	ComplexNumber COMPLEX;
 	COMPLEX.x=creal;
 	COMPLEX.y=cimag;
 	int i;
-	ComplexNumber* arr = cpl.mat;
+	printf ("Step 3");
+	ComplexNumber* arr = (*cpl).mat;
 	int size = sizeof(arr);
+	printf ("Step 4 loop");
 	for(i=0;i<size;i++){
+	 	printf ("Step %s loop", i);
 		iterate(arr[i],COMPLEX);	
 	}
-	
+	return 0;
 }
 
 int MAXITER=256;
@@ -24,11 +44,11 @@ void iterate(ComplexNumber z,ComplexNumber c){
             z=juliamap(z,c);
             out+=1;
             if(z.x>2 || z.x<-2){
-		println("%s, %s, %s",z.x,z.y, out);                
+		printf("%s, %s, %s \n",z.x,z.y, out);                
 		return;
 	    }
             else if(out>=MAXITER){
-		println("Exceed number of tries %s", out);                
+		printf("Exceed number of tries %s", out);                
 		return;
 	    }
 	}
