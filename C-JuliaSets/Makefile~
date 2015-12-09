@@ -1,7 +1,0 @@
-all: julia
-
-run: all
-	./julia
-
-clean:
-	rm -f julia *.o
