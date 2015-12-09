@@ -1,9 +1,9 @@
 #include "cplane.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "complex.h"
 
-CPLANE* CPLANE_new(long double xmin, xmax, ymin, ymax; unsigned long int xpoints, ypoints){
+
+CPLANE* CPLANE_new(long double xmin, long double xmax, long double ymin, long double ymax, unsigned long int xpoints, unsigned long int  ypoints){
 	CPLANE* p = malloc(sizeof(CPLANE));
 	p->xmin=xmin;
 	p->xmax=xmax;
@@ -29,6 +29,6 @@ CPLANE* CPLANE_new(long double xmin, xmax, ymin, ymax; unsigned long int xpoints
 		i=i+1;
 	}
 
-	p->mat=mat;
+	p->mat= mat;
 	return p;
 }
