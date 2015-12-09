@@ -30,7 +30,7 @@ int main(int argc, char **argv){
 	int size = sizeof(arr);
 	printf ("Step 4 loop\n");
 	for(i=0;i<size;i++){
-	 	printf ("Step %d loop\n", i);
+	 	printf ("Step %d inside loop\n", i);
 		iterate(arr[i],COMPLEX);	
 	}
 	return 0;
