@@ -17,13 +17,13 @@ CPLANE* CPLANE_new(long double xmin, long double xmax, long double ymin, long do
 	long double y;
 	ComplexNumber mat[ypoints][xpoints];
 	int i;
+	int j;
 	i=0;
 	for (x=xmin; x<=xmax; x=x+stepx){
-		int j;
 		j=0;
 		for (y=ymin; y<=ymax; y=y+stepy){
 			mat[j][i].x= x;
-			mat[j][i].y=y;
+			mat[j][i].y= y;
 			j=j+1;
 		}
 		i=i+1;
