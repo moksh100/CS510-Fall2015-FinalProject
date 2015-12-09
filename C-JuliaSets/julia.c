@@ -41,10 +41,10 @@ int MAXITER=256;
 void iterate(ComplexNumber z,ComplexNumber c){
         int out=0;
         while(1>0){
-	    printf ("Step %d while loop %d+%di\n", out, z.x, z.y);
-            z=juliamap(z,c);
-            out+=1;
-            if(z.x>2 || z.x<-2){
+	    printf ("Step %d while loop z= %d+%di; c= %d+%di\n", out, z.x, z.y, c.x,c.y);
+            z=juliamap(z,c);;
+            out= out+1;
+            if(z.x>2 || z.x<-2 || z.y>2 || z.y<-2){
 		printf("%s, %s, %s \n",z.x,z.y, out);                
 		return;
 	    }
