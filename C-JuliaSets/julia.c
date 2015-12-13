@@ -2,11 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 void iterate(ComplexNumber z,ComplexNumber c);
 
 int main(int argc, char **argv){
-	printf ("Step 0\n");
 	if(argc< 9){
 	 return 1;
 	}
@@ -17,20 +17,17 @@ int main(int argc, char **argv){
 	unsigned long int xpoints= atoi(argv[5]); 
 	unsigned long int ypoints= atoi(argv[6]); 
 	long double  creal= atoi(argv[7]); 
-	long double cimag= atoi(argv[8]);
-	printf ("Step 1\n");	
+	long double cimag= atoi(argv[8]);	
 	CPLANE* cpl = CPLANE_new(xmin, xmax, ymin, ymax, xpoints, ypoints);
-	printf ("Step 2\n");
 	ComplexNumber COMPLEX;
 	COMPLEX.x=creal;
 	COMPLEX.y=cimag;
 	int i;
-	printf ("Step 3\n");
+	int j = xpoints*ypoints;
 	ComplexNumber* arr = (*cpl).mat;
-	int size = sizeof(arr);
-	printf ("Step 4 loop\n");
-	for(i=0;i<size;i++){
-	 	printf ("Step %d inside loop\n", i);
+
+	
+	for(i=0;i<j;i++){
 		iterate(arr[i],COMPLEX);	
 	}
 	return 0;
@@ -41,15 +38,14 @@ int MAXITER=256;
 void iterate(ComplexNumber z,ComplexNumber c){
         int out=0;
         while(1>0){
-	    printf ("Step %d while loop z= %d+%di; c= %d+%di\n", out, z.x, z.y, c.x,c.y);
             z=juliamap(z,c);;
             out= out+1;
-            if(z.x>2 || z.x<-2 || z.y>2 || z.y<-2){
-		printf("%s, %s, %s \n",z.x,z.y, out);                
+            if(sqrt((z.x*z.x)+(z.y*z.y))>2){
+		printf("%d, %d, %d \n",z.x,z.y, out);                
 		return;
 	    }
             else if(out>=MAXITER){
-		printf("Exceed number of tries %s\n", out);                
+		printf("Exceed number of tries %d\n", out);                
 		return;
 	    }
 	}

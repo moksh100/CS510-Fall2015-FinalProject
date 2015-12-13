@@ -1,6 +1,6 @@
-all: julia
+all: julia -lm
 
-julia: complex.o cplane.o -lm
+julia: complex.o cplane.o
 
 run: all
 	./julia
