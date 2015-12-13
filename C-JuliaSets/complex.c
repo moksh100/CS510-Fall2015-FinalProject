@@ -4,7 +4,7 @@
 
 char ** complex_to_str(ComplexNumber z){
 	char  tagstr[160];
-	sprintf(tagstr, "%d+%di", z.x, z.y);
+	sprintf(tagstr, "%F+%Fi", z.x, z.y);
 	printf("String %s \n", tagstr);
 	return & tagstr;
 }

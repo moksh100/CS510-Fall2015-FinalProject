@@ -25,8 +25,6 @@ int main(int argc, char **argv){
 	int i;
 	int j = xpoints*ypoints;
 	ComplexNumber* arr = (*cpl).mat;
-
-	
 	for(i=0;i<j;i++){
 		iterate(arr[i],COMPLEX);	
 	}
@@ -37,15 +35,15 @@ int MAXITER=256;
 
 void iterate(ComplexNumber z,ComplexNumber c){
         int out=0;
-        while(1>0){
-            z=juliamap(z,c);;
+        while(1>0){     
+            z=juliamap(z,c);
             out= out+1;
             if(sqrt((z.x*z.x)+(z.y*z.y))>2){
-		printf("%d, %d, %d \n",z.x,z.y, out);                
+		printf("%f, %f, %d \n",z.x,z.y, out);                
 		return;
 	    }
             else if(out>=MAXITER){
-		printf("Exceed number of tries %d\n", out);                
+		printf("%f, %f, %d \n",z.x,z.y, out);         
 		return;
 	    }
 	}

@@ -1,6 +1,6 @@
 typedef struct complexnumber{ 
-		int x; 
-		int y; 
+		double x; 
+		double y; 
 } ComplexNumber;
 
 ComplexNumber mult2(ComplexNumber a,ComplexNumber b);
