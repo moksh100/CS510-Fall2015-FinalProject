@@ -1,9 +1,0 @@
-all: julia -lm
-
-julia: complex.o cplane.o
-
-run: all
-	./julia
-
-clean:
-	rm -f julia *.o
