@@ -1,9 +1,9 @@
-all: test_matrices
+all: mandelbrot
 
-test_matrices: matrices.o
+mandelbrot: cplane.o julia.o 
 
 run: all
-	./test_matrices
+	./mandelbrot ${ARGS}
 
 clean:
-	rm -f test_matrices matrices.o
+	rm -f mandelbrot *.o
