@@ -8,7 +8,7 @@ void iterate(std::complex<long double> c,std::complex<long double> z);
 int main (int argc, char* argv[])
 {
 	if(argc< 7){
-		cout << "Error Not enogh arguments \n" << argc;
+		cout << "Error Not enogh arguments \n";
 	 return 1;
 	}
         long double xmin = atoi(argv[1]); 
