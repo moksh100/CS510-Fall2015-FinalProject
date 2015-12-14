@@ -1,12 +1,12 @@
 #include <stdio.h>
 #include "complex.h"
+#include <stdlib.h>
 
-
-char ** complex_to_str(ComplexNumber z){
-	char  tagstr[160];
-	sprintf(tagstr, "%F+%Fi", z.x, z.y);
+char *complex_to_str(ComplexNumber z){
+	char *tagstr=malloc(z.x+z.y);
+	sprintf(tagstr, "%1.10Lf+%1.10Lfi", z.x, z.y);
 	printf("String %s \n", tagstr);
-	return & tagstr;
+	return tagstr;
 }
 
 ComplexNumber juliamap(ComplexNumber z, ComplexNumber c){
