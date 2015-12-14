@@ -14,7 +14,7 @@ for file in sys.argv:
 	df.columns=['x', 'y' , 'one']
 	x = df['x'].values
 	y = df['y'].values
-	heatmap, xedges, yedges = np.histogram2d(x, y, bins=50)
+	heatmap, xedges, yedges = np.histogram2d(x, y, bins=17)
 	extent = [xedges[0], xedges[-1], yedges[0], yedges[-1]]
 
 	plt.clf()
