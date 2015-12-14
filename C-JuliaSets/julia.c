@@ -39,8 +39,6 @@ int MAXITER=256;
 void iterate(ComplexNumber z,ComplexNumber c){
         int out=0;
         while(1>0){         
-            z=juliamap(z,c);
-            out= out+1;
             if(sqrt((z.x*z.x)+(z.y*z.y))>=2){
 		printf("%1.10Lf, %1.10Lf, %d \n",z.x,z.y, out);                
 		break;
@@ -49,5 +47,7 @@ void iterate(ComplexNumber z,ComplexNumber c){
 		printf("%1.10Lf, %1.10Lf, %d \n",z.x,z.y, out);         
 		break;
 	    }
+            z=juliamap(z,c);
+            out= out+1;
 	}
 }
