@@ -40,13 +40,14 @@ void iterate(ComplexNumber z,ComplexNumber c){
         int out=0;
         while(1>0){         
             if(sqrt((z.x*z.x)+(z.y*z.y))>=2){
+		out=0;
 		printf("%1.10Lf, %1.10Lf, %d \n",z.x,z.y, out);                
 		break;
 	    }
             else if(out>=MAXITER){
 		printf("%1.10Lf, %1.10Lf, %d \n",z.x,z.y, out);         
 		break;
-	    }
+	    } 
             z=juliamap(z,c);
             out= out+1;
 	}
